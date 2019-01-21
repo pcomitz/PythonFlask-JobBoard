@@ -15,7 +15,7 @@ app = Flask(__name__)
 
 #add route decorators
 @app.route('/')
-@app.route('/joobs')
+@app.route('/jobs')
 def jobs():
     return render_template('index.html')
 
