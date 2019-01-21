@@ -3,6 +3,9 @@
 # this app.py live in the /jobs dir 
 #but can do flask run from root dir of project
 #
+# git commit -am 'Completed the module'
+# git push origin master
+#
 
 from flask import Flask, render_template
 
@@ -15,3 +18,8 @@ app = Flask(__name__)
 @app.route('/joobs')
 def jobs():
     return render_template('index.html')
+
+
+
+
+
