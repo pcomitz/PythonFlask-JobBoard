@@ -19,7 +19,7 @@ from flask import Flask, render_template, g
 
 # Constant is path to already created
 # db, jobs.sqlite
-PATH= 'db/jobs.sqlite'
+PATH= '../db/jobs.sqlite'
 
 # create a Flask instance
 app = Flask(__name__)
