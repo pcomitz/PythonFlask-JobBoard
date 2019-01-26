@@ -4,7 +4,8 @@
 #but can do flask run from root dir of project
 #
 # see https://www.pluralsight.com/guides/git-for-projects-101
-# git commit -am 'Completed the module'
+# git commit -am "Completed the module"
+# note single quote does not work with git on windows
 # git push origin master
 #
 # module 3 adds sqlite
