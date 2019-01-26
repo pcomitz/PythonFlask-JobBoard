@@ -10,6 +10,7 @@
 # module 3 adds sqlite
 # to provide access throughout the application, import
 # the global helper g from flask
+# https://www.reddit.com/r/flask/comments/5ggh7j/what_is_flaskg/
 #
 
 import sqlite3
@@ -23,6 +24,7 @@ PATH= 'db/jobs.sqlite'
 app = Flask(__name__)
 
 def open_connection():
+    # http://effbot.org/zone/python-getattr.htm
     connection = getattr(g,'_connection', None)
     if connection == None:
         connection = g._connection = sqlite3.connect(PATH)
@@ -54,7 +56,11 @@ def close_connection(exception):
 @app.route('/')
 @app.route('/jobs')
 def jobs():
-    return render_template('index.html')
+    jobs=execute_sql('SELECT job.id, job.title, job.description,\
+                      job.salary, employer.id as employer_id,\
+                      employer.name as employer_name\
+                      FROM job JOIN employer ON employer.id = job.employer_id')
+    return render_template('index.html', jobs=jobs)
 
 
 
